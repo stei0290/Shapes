@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>70</x>
+      <y>760</y>
+      <w>310</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>SDLTextWidgetExample
+--
+-mpcTextInput : SDLTextWidget*
+-mpcTextOutput : SDLTextWidget*
+-mInputFont : int
+-mOutputFont : int
+--
+
++SDLTextWidgetExample()
++~SDLTextWidgetExample()
+
+/+render() : void /
+
+-onTextInput() : void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>890</x>
+      <y>700</y>
+      <w>440</w>
+      <h>380</h>
+    </coordinates>
+    <panel_attributes>ISDLWidgetTextable
+--
+--
+
+/+~ISDLWidgetTextable()/
+
+/+setData(std::string) : void/
+/+getData() : std::string/
+
+/+setLabel(std::string) : void/
+/+getLabel() : std::string/
+
+/+getLength() : int = 0/
+
+/+setEditable(bool) : void/
+/+isEditable() : bool/
+
+/+setFocus(bool) : void/
+/+hasFocus() : bool/
+
+/+stateChangeEvent() : void/
+
+/+registerStateChangeEventHandler(std::function&lt;void(void)&gt;): void/
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>920</x>
+      <y>360</y>
+      <w>390</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>ISDLWidgetClickable
+--
+--
+/+clicked(int ,int ): bool =0/
+
+/+registerClickEventHandler(std::function&lt;void(void)&gt;):void/
+
+/+clickEventHandler() : void/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>430</x>
+      <y>40</y>
+      <w>460</w>
+      <h>640</h>
+    </coordinates>
+    <panel_attributes>/SDLApp/
+--
+--
++SDLApp ()
+/+~SDLApp ()/
+
++createWindow (std::string, int,int,int,int) : bool 
++setWindowBackgroundColor (Color ) : void
+
++cleanup () : void
+
++setColor (Color ) : void
++getColor () : Color
++drawLine (int, int , int, int ) : void
++drawCircle (int, int, int ) : void
++drawBox(int, int, int, int) : void
+
++displayText (int, int, std::string, Color) : void
+
++loadFont (std::string, int) : int
++displayText (int, int, std::string, Color, int) : bool
++displayTextClickable (int, int, std::string, Color, int, int &amp;, int &amp;) : bool
+
++loadSprite (std::string, int &amp;, int &amp;) : bool
++displaySprite (const SDLSprite &amp;) : void
+
++gameLoop (unsigned int ) : void
+
++enableTextInput () : void;
++disableTextInput () : void;
+
++registerTextWidget (ISDLWidgetTextable *) : void
++registerClickableWidget (ISDLWidgetClickable *) : void
+
+/+initGame () : void/
+/+update () : void/
+/+handleEvent (SDL_Event event) : void/
+
+/+render () = 0 : void/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>580</x>
+      <y>710</y>
+      <w>190</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>ISDLWidget
+--
+--
+/+~ISDLWidget()/
+
+/+draw(SDLApp&amp;) : void = 0/
+
++isVisible() : bool
++setVisible(bool) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>930</y>
+      <w>280</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>SDLTextWidget
+--
+--
++SDLTextWidget (std::string, std::string, int, int, int, Color);
+/+~SDLTextWidget ()/
++draw (SDLApp &amp; ): void;
+
++getLength () : int
+
++clicked (int, int) : bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1100</x>
+      <y>480</y>
+      <w>50</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30.0;10.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>840</x>
+      <y>830</y>
+      <w>70</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>670</x>
+      <y>850</y>
+      <w>120</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>670</y>
+      <w>90</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>810</y>
+      <w>260</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=mpcTextInput</panel_attributes>
+    <additional_attributes>10.0;10.0;240.0;270.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>970</y>
+      <w>260</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=mpcTextOutput</panel_attributes>
+    <additional_attributes>10.0;10.0;240.0;110.0</additional_attributes>
+  </element>
+</diagram>
